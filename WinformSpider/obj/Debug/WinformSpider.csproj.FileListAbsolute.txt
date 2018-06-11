@@ -1,0 +1,14 @@
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\bin\Debug\WinformSpider.exe.config
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\bin\Debug\WinformSpider.exe
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\bin\Debug\WinformSpider.pdb
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\obj\Debug\WinformSpider.csprojAssemblyReference.cache
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\obj\Debug\WinformSpider.Form1.resources
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\obj\Debug\WinformSpider.Properties.Resources.resources
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\obj\Debug\WinformSpider.csproj.GenerateResource.cache
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\obj\Debug\WinformSpider.csproj.CoreCompileInputs.cache
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\obj\Debug\WinformSpider.exe
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\obj\Debug\WinformSpider.pdb
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\bin\Debug\base64.js
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\bin\Debug\md5.js
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\bin\Debug\sha1.js
+D:\ybs\Codes\WenshuSpider\WinformSpider\WinformSpider\bin\Debug\vl5x.js

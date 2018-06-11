@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformSpider", "WinformSpider\WinformSpider.csproj", "{3947BC96-83D8-4AAC-ACA4-A34951DE1B6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformSpiderTests", "WinformSpiderTests\WinformSpiderTests.csproj", "{72681134-CD7A-4639-8B34-ADB46B79FCDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3947BC96-83D8-4AAC-ACA4-A34951DE1B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3947BC96-83D8-4AAC-ACA4-A34951DE1B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3947BC96-83D8-4AAC-ACA4-A34951DE1B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3947BC96-83D8-4AAC-ACA4-A34951DE1B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72681134-CD7A-4639-8B34-ADB46B79FCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72681134-CD7A-4639-8B34-ADB46B79FCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72681134-CD7A-4639-8B34-ADB46B79FCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72681134-CD7A-4639-8B34-ADB46B79FCDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97788835-ABD5-41FF-9AEA-551266E074BB}
+	EndGlobalSection
+EndGlobal
