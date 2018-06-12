@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/WinformSpider
+/WinformSpider/bin
+/WinformSpider/obj
