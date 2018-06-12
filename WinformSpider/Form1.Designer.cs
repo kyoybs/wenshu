@@ -28,83 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGet = new System.Windows.Forms.Button();
-            this.txtUrl = new System.Windows.Forms.TextBox();
-            this.txtParms = new System.Windows.Forms.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.btnParseJson = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblState = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnGet
-            // 
-            this.btnGet.Location = new System.Drawing.Point(108, 116);
-            this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(140, 47);
-            this.btnGet.TabIndex = 0;
-            this.btnGet.Text = "确定";
-            this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.Location = new System.Drawing.Point(52, 29);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(412, 25);
-            this.txtUrl.TabIndex = 1;
-            this.txtUrl.Text = "http://wenshu.court.gov.cn/CreateContentJS/CreateListDocZip.aspx?action=1";
-            // 
-            // txtParms
-            // 
-            this.txtParms.Location = new System.Drawing.Point(53, 76);
-            this.txtParms.Name = "txtParms";
-            this.txtParms.Size = new System.Drawing.Size(412, 25);
-            this.txtParms.TabIndex = 2;
-            this.txtParms.Text = "docIds=5a005846-0c1d-422e-89b2-a8f10104a322|张文中诈骗、单位行贿、挪用资金再审刑事判决书|2018-05-30&key" +
-    "Code=";
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(108, 247);
+            this.btnTest.Location = new System.Drawing.Point(30, 28);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(148, 62);
+            this.btnTest.Size = new System.Drawing.Size(140, 54);
             this.btnTest.TabIndex = 3;
-            this.btnTest.Text = "Test";
+            this.btnTest.Text = "Get List";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(375, 142);
+            this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtResult.Location = new System.Drawing.Point(241, 12);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(396, 296);
+            this.txtResult.Size = new System.Drawing.Size(547, 282);
             this.txtResult.TabIndex = 4;
+            // 
+            // btnParseJson
+            // 
+            this.btnParseJson.Location = new System.Drawing.Point(30, 116);
+            this.btnParseJson.Name = "btnParseJson";
+            this.btnParseJson.Size = new System.Drawing.Size(140, 54);
+            this.btnParseJson.TabIndex = 5;
+            this.btnParseJson.Text = "Parse JSON";
+            this.btnParseJson.UseVisualStyleBackColor = true;
+            this.btnParseJson.Click += new System.EventHandler(this.btnParseJson_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblState});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 425);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 25);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblState
+            // 
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(54, 20);
+            this.lblState.Text = "Ready";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.btnParseJson);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.txtParms);
-            this.Controls.Add(this.txtUrl);
-            this.Controls.Add(this.btnGet);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGet;
-        private System.Windows.Forms.TextBox txtUrl;
-        private System.Windows.Forms.TextBox txtParms;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Button btnParseJson;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblState;
     }
 }
 

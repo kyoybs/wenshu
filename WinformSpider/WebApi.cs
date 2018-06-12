@@ -74,5 +74,13 @@ namespace WinformSpider
             Request = request;
             return request;
         }
+
+        public WebResponse Response { get; set; }
+
+        protected override WebResponse GetWebResponse(WebRequest request)
+        {
+            this.Response = base.GetWebResponse(request);
+            return this.Response;
+        }
     }
 }
