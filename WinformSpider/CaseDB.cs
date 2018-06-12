@@ -21,11 +21,11 @@ namespace WinformSpider
 
         private string ConnectString;
 
-        public void InsertCase(Case caseInfo)
+        public void InsertCase(CaseFile caseInfo)
         {
             using (SqlConnection conn = new SqlConnection(ConnectString))
             {
-                conn.Insert<Case>(caseInfo);
+                conn.Insert<CaseFile>(caseInfo);
             }
         }
 
@@ -45,15 +45,16 @@ INSERT INTO [dbo].[DayLog] ([CaseDate], TotalCount, [DownloadCount])
 VALUES('{strdate}', {dayCount}, 0)";
             CaseDB.Create().Execute(sql, null);
         }
-
-
-        public Case GetCase(string caseId)
+         
+        public CaseFile GetCase(string caseId)
         {
-            string sql = @"SELECT TOP 1 * FROM Case WHERE CaseID=@caseId";
+            string sql = @"SELECT TOP 1 * FROM CaseFile WHERE CaseID=@caseId";
             using (SqlConnection conn = new SqlConnection(ConnectString))
             {
-                return conn.QueryFirstOrDefault<Case>(sql, new { caseId });
+                return conn.QueryFirstOrDefault<CaseFile>(sql, new { caseId });
             }
         }
+
+
     }
 }

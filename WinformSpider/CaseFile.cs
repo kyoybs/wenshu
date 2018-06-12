@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace WinformSpider
 {
-    [Table("Case")]
-    public class Case
+    [Table("CaseFile")]
+    public class CaseFile
     {
         /// <summary>
         /// 文书ID

@@ -53,7 +53,7 @@ namespace WinformSpider
     { 
         public static CookieContainer Cookies = new CookieContainer();
 
-        public int TimeoutSeconds { get; set; } = 30;
+        public int TimeoutSeconds { get; set; } = 60;
 
         public WebRequest Request { get; set; }
 

@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="CaseDB.cs" />
     <Compile Include="Extents.cs" />
-    <Compile Include="Case.cs" />
+    <Compile Include="CaseFile.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

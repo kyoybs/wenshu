@@ -53,9 +53,10 @@ namespace WinformSpider
             //pt.SetProxy("60.177.224.188", 18118);
             this.ShowState("正在下载列表...");
             DateTime date = new DateTime(2018, 6, 1);
+        
             string json = pt.GetList(date, 1, 20);
             this.ShowState("正在解析列表...");
-            pt.ParseList(json, date);
+            pt.ParseList(json, date, 1);
         }
 
 

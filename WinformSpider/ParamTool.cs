@@ -188,7 +188,7 @@ namespace WinformSpider
             return html;
         }
 
-        public void Download(string caseId, string caseName, DateTime date)
+        public void Download(string caseId, string caseName, DateTime date, int pageIndex)
         {
             // conditions : WebUtility.UrlEncode 案件类型为刑事案件且文书类型为判决书且裁判日期为2018-06-01 TO 2018-06-01
             // docIds : e5eda16f-bf8e-4b71-8968-a8f200d7a792|汪某某、廖某某故意伤害罪二审刑事判决书|2018-06-01
@@ -199,7 +199,7 @@ namespace WinformSpider
             string keyCode = "";
             //Referer: http://wenshu.court.gov.cn/list/list/?sorttype=1&number=KHC8W9HV&guid=542fbd32-2a4b-59e04802-01dbe7a80284&conditions=searchWord+1+AJLX++%E6%A1%88%E4%BB%B6%E7%B1%BB%E5%9E%8B:%E5%88%91%E4%BA%8B%E6%A1%88%E4%BB%B6&conditions=searchWord+1+WSLX++%E6%96%87%E4%B9%A6%E7%B1%BB%E5%9E%8B:%E5%88%A4%E5%86%B3%E4%B9%A6&conditions=searchWord++CPRQ++%E8%A3%81%E5%88%A4%E6%97%A5%E6%9C%9F:2018-06-01%20TO%202018-06-01
 
-            var url = "/CreateContentJS/CreateListDocZip.aspx?action=1";
+            var url = "http://wenshu.court.gov.cn/CreateContentJS/CreateListDocZip.aspx?action=1";
              
             var web = this.GetClient();
             web.Headers.Clear();
@@ -215,19 +215,26 @@ namespace WinformSpider
 
             //web.Headers.Add(HttpRequestHeader.Connection, "keep-alive");
             string param = $"conditions={coditions}&docIds={docIds}&keyCode={keyCode}";
-            web.RequestConentLength = param.Length;
+            var postData = Encoding.UTF8.GetBytes(param);
+            web.RequestConentLength = postData.Length;
             web.Proxy = _proxy;
-            var buffer = web.UploadData(url, "POST", Encoding.UTF8.GetBytes( param));//得到返回字符流  
+            var buffer = web.UploadData(url, "POST", postData);//得到返回字符流  
             string fileName = WebUtility.UrlDecode(web.Response.Headers["Content-Disposition"]).Replace("attachment;filename=","");
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), date.ToString("yyyy-MM-dd"), fileName);
+            string folder = Path.Combine(Directory.GetCurrentDirectory(), "files" , date.ToString("yyyy-MM-dd") );
+            if(Directory.Exists(folder) != true)
+            {
+                Directory.CreateDirectory(folder);
+            }
+            string filePath = Path.Combine(folder, fileName);
             File.WriteAllBytes(filePath, buffer);
 
-            string sql = "UPDATE DayLog SET DownloadCount = DownloadCount+1 WHERE CaseDate=@CaseDate ";
-            CaseDB.Create().Execute(sql, new { CaseDate = date });
+            string sql = @"UPDATE DayLog SET DownloadCount = DownloadCount+1 WHERE CaseDate=@CaseDate; 
+UPDATE CaseFile SET FilePath=@FilePath , PageIndex=@PageIndex WHERE CaseId=@CaseId ";
+            CaseDB.Create().Execute(sql, new { CaseDate = date, filePath , pageIndex, caseId});
 
         }
 
-        public void ParseList(string json, DateTime date)
+        public void ParseList(string json, DateTime date, int pageIndex)
         {
             json = json.Trim('"').Replace("\\\"", "\"");
             var dics = JsonConvert.DeserializeObject<JObject[]>(json);
@@ -245,7 +252,7 @@ namespace WinformSpider
             for (int i = 1; i < dics.Length; i++)
             {
                 Form1.MainForm.ShowState($"本页共有{DayCount}个文档， 即将开始下载 {1}...");
-                Case caseInfo = new Case();
+                CaseFile caseInfo = new CaseFile();
                 caseInfo.CaseId = dics[i]["文书ID"].ToString();
                 caseInfo.UnpubReason = dics[i]["不公开理由"].ToString();
                 caseInfo.CaseType = dics[i]["案件类型"].ToString();
@@ -259,7 +266,7 @@ namespace WinformSpider
                 if(db.GetCase(caseInfo.CaseId) == null)
                     db.InsertCase(caseInfo);
 
-                this.Download(caseInfo.CaseId, caseInfo.CaseName, date);
+                this.Download(caseInfo.CaseId, caseInfo.CaseName, date , pageIndex);
 
                
                 Thread.Sleep(10000);
